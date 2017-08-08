@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="phuc.frankie.vozwithmusic.ActivityBookDetails">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/toolbar_color"
+        app:popupTheme="@style/AppTheme.PopupOverlay"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:elevation="4dp">
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <ImageButton
+                android:background="@color/transparent"
+                android:layout_gravity="center_vertical"
+                android:src="@mipmap/ic_back_slim"
+                android:id="@+id/toolbar_ic_back"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:contentDescription="back" />
+            <TextView
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:id="@+id/toolbar_title_book_details"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:text="@string/app_name"
+                android:textColor="@color/brown"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:background="@color/cover_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/details_container_activity_book_details"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <FrameLayout
+                android:id="@+id/cover_container"
+                android:layout_alignParentTop="true"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:padding="5dp"
+                    android:elevation="2dp"
+                    android:background="@drawable/main_item_border"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/cover_vtd"
+                    android:id="@+id/story_cover_activity_book_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </FrameLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_below="@id/cover_container"
+                android:id="@+id/story_details_activity_book_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/story_name"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    android:text="Story Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/story_author"
+                    android:text="Story Author"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:textAlignment="center"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/story_update_day"
+                    android:text="Story Update at Aug 4, 2017"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@android:color/black"
+                    android:textSize="18sp"
+                    android:layout_gravity="center_horizontal"
+                    android:id="@+id/story_content"
+                    android:text="Story Content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>
