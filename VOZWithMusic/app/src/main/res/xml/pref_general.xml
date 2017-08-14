@@ -1,0 +1,35 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:summaryOff="Đã tắt"
+        android:summaryOn="Đã bật"
+        android:defaultValue="true"
+        android:key="@string/pref_key_music_onoff"
+        android:title="@string/pref_title_music_onoff" />
+
+    <!-- NOTE: EditTextPreference accepts EditText attributes. -->
+    <!-- NOTE: EditTextPreference's summary should be set to its value by the activity code. -->
+
+
+    <!-- NOTE: Hide buttons to simplify the UI. Users can touch outside the dialog to
+         dismiss it. -->
+    <!-- NOTE: ListPreference's summary should be set to its value by the activity code. -->
+    <ListPreference
+        android:defaultValue="16"
+        android:entries="@array/pref_example_list_titles"
+        android:entryValues="@array/pref_example_list_values"
+        android:key="@string/pref_key_text_size_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_text_size_list" />
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_theme_color_list_titles"
+        android:entryValues="@array/pref_theme_color_values"
+        android:key="@string/pref_key_theme_color_list"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_title_theme_color_list"/>
+
+
+</PreferenceScreen>

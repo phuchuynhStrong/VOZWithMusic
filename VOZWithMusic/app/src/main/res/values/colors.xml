@@ -13,4 +13,10 @@
     <color name="toolbar_color">@android:color/white</color>
     <color name="transparent">#80ffffff</color>
     <color name="cover_background">#e6faff</color>
+
+    <color name="text_color_white">@android:color/white</color>
+    <color name="text_color_black">@android:color/black</color>
+
+    <color name="background_color_white">#e6faff</color>
+    <color name="background_color_black">@android:color/black</color>
 </resources>

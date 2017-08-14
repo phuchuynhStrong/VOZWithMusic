@@ -11,7 +11,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
-        android:background="@color/toolbar_color"
+        android:background="@color/cover_background"
         app:popupTheme="@style/AppTheme.PopupOverlay"
         app:contentInsetLeft="0dp"
         app:contentInsetStart="0dp"
@@ -21,7 +21,7 @@
             android:layout_height="match_parent"
             >
             <ImageButton
-                android:background="@color/transparent"
+                android:background="@color/cover_background"
                 android:layout_gravity="center_vertical"
                 android:src="@mipmap/ic_back_slim"
                 android:id="@+id/toolbar_ic_back"
@@ -57,6 +57,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <ImageView
+                    android:transitionName="cover"
                     android:padding="5dp"
                     android:elevation="2dp"
                     android:background="@drawable/main_item_border"
@@ -74,6 +75,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:transitionName="title"
+                    android:layout_marginTop="5dp"
                     android:textColor="@android:color/black"
                     android:textAlignment="center"
                     android:layout_gravity="center_horizontal"
@@ -84,6 +87,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:textColor="@android:color/black"
                     android:textAlignment="center"
                     android:textSize="20sp"
@@ -93,6 +97,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:textColor="@android:color/black"
                     android:textAlignment="center"
                     android:textSize="18sp"
@@ -102,6 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
                 <TextView
+                    android:layout_margin="10dp"
                     android:textColor="@android:color/black"
                     android:textSize="18sp"
                     android:layout_gravity="center_horizontal"
@@ -109,7 +115,39 @@
                     android:text="Story Content"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
-
+                <TextView
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:textColor="@android:color/black"
+                    android:text="Số chương"
+                    android:id="@+id/number_chapters"
+                    android:textSize="20sp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                    <Button
+                        android:text="Đọc từ đầu"
+                        android:textColor="@android:color/white"
+                        android:padding="5dp"
+                        android:background="@drawable/select_chapter_button_border"
+                        android:id="@+id/start_reading_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"></Button>
+                    <Button
+                        android:layout_marginStart="10dp"
+                        android:textColor="@android:color/white"
+                        android:padding="5dp"
+                        android:background="@drawable/select_chapter_button_border"
+                        android:id="@+id/select_chapter_spinner"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"></Button>
+                </LinearLayout>
             </LinearLayout>
         </RelativeLayout>
     </ScrollView>

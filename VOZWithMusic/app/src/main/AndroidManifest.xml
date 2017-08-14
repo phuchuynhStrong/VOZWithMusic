@@ -24,7 +24,11 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
         <activity android:name=".ActivityReading" />
-        <activity android:name=".ActivityBookDetails"></activity>
+        <activity android:name=".ActivityBookDetails" />
+        <activity
+            android:name=".ActivitySettings"
+            android:label="@string/title_activity_settings"></activity>
+        <service android:name=".MusicPlayService" android:enabled="true"/>
     </application>
 
 </manifest>

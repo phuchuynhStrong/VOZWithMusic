@@ -5,6 +5,9 @@
     <item android:title="Thể loại">
         <menu>
         <item
+            android:id="@+id/nav_all"
+            android:title="Tất cả truyện"/>
+        <item
             android:id="@+id/nav_story"
             android:icon="@mipmap/ic_story"
             android:title="@string/diary" />
@@ -18,5 +21,5 @@
             android:title="@string/diary" />
         </menu>
     </item>
-    <item android:title="Cài đặt" android:icon="@mipmap/ic_setting"/>
+
 </menu>

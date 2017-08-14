@@ -17,6 +17,15 @@ public class Utility {
     public static final String AUTHOR = "author";
     public static final String CONTENT = "content";
     public static final String UPDATEDAT = "updatedAt";
+    public static final String LIST_CHAPTER = "list_chapter";
+    public static final String TYPE_NOVEL = "novel";
+    public static final String TYPE_REVIEW = "review";
+    public static final String TYPE_DIARY = "diary";
+    public static final String TYPE_ALL = "all";
+    public static final String RAW_LINK_CHAPTER = "raw_link_chapter";
+    public static final String RAW_LINK_NEXT_CHAPTER = "raw_link_next_chapter";
+    public static final String RAW_LINK_PREVIOUS_CHAPTER = "raw_link_previous_chapter";
+
 
     public static String readRawTextFile(Context ctx, int resId)
     {

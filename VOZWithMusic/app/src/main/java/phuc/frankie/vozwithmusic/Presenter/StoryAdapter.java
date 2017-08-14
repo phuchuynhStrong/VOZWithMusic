@@ -2,6 +2,10 @@ package phuc.frankie.vozwithmusic.Presenter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Display;
@@ -14,9 +18,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import phuc.frankie.vozwithmusic.ActivityBookDetails;
+import phuc.frankie.vozwithmusic.ActivityMain;
 import phuc.frankie.vozwithmusic.ActivityReading;
 import phuc.frankie.vozwithmusic.Database.Database;
 import phuc.frankie.vozwithmusic.R;
@@ -49,7 +55,17 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     }
 
     @Override
-    public void onBindViewHolder(StoryViewHolder holder, final int position) {
+    public void onBindViewHolder(final StoryViewHolder holder, final int position) {
+        SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        int color = Integer.parseInt(preferences.getString(mContext.getResources().getString(R.string.pref_key_theme_color_list),""));
+        if (color == 0){
+            holder.container.setBackground(mContext.getResources().getDrawable(R.drawable.main_item_border));
+            holder.name.setTextColor(mContext.getResources().getColor(R.color.text_color_black));
+        }
+        else {
+            holder.container.setBackground(mContext.getResources().getDrawable(R.drawable.main_item_border_white));
+            holder.name.setTextColor(mContext.getResources().getColor(R.color.text_color_white));
+        }
         holder.logo.setImageResource(listStories.get(position).getCover());
         holder.name.setText(listStories.get(position).getName());
         holder.container.setOnClickListener(new View.OnClickListener() {
@@ -60,9 +76,14 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
                 bookDetails.putExtra(Utility.COVER,story.getCover());
                 bookDetails.putExtra(Utility.NAME,story.getName());
                 bookDetails.putExtra(Utility.AUTHOR,story.getAuthor());
-                bookDetails.putExtra(Utility.CONTENT,story.getContent());
+                bookDetails.putExtra(Utility.CONTENT,Utility.readRawTextFile(mContext,story.getContent()));
                 bookDetails.putExtra(Utility.UPDATEDAT,story.getUpdateDay());
-                mContext.startActivity(bookDetails);
+                bookDetails.putExtra(Utility.LIST_CHAPTER,story.getNumberOfChap());
+                bookDetails.putExtra(Utility.RAW_LINK_CHAPTER,story.getFirstChapter());
+                Pair<View,String> cover = Pair.create((View) holder.logo,"cover");
+                ActivityOptionsCompat options = ActivityOptionsCompat.
+                        makeSceneTransitionAnimation((ActivityMain)mContext, cover);
+                mContext.startActivity(bookDetails,options.toBundle());
             }
         });
 
