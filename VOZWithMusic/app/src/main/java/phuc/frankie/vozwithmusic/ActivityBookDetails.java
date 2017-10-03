@@ -124,8 +124,8 @@ public class ActivityBookDetails extends AppCompatActivity {
         });
 
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),""));
-        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),""));
+        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),"13"));
+        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),"0"));
 
         if (color == 0){
             //White
@@ -190,8 +190,8 @@ public class ActivityBookDetails extends AppCompatActivity {
             }
         }
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),""));
-        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),""));
+        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),"13"));
+        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),"0"));
 
         if (color == 0){
             //White

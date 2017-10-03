@@ -57,7 +57,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.StoryViewHol
     @Override
     public void onBindViewHolder(final StoryViewHolder holder, final int position) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
-        int color = Integer.parseInt(preferences.getString(mContext.getResources().getString(R.string.pref_key_theme_color_list),""));
+        int color = Integer.parseInt(preferences.getString(mContext.getResources().getString(R.string.pref_key_theme_color_list),"0"));
         if (color == 0){
             holder.container.setBackground(mContext.getResources().getDrawable(R.drawable.main_item_border));
             holder.name.setTextColor(mContext.getResources().getColor(R.color.text_color_black));

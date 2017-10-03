@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,11 +8,20 @@
     android:layout_height="match_parent"
     tools:context="phuc.frankie.vozwithmusic.ActivityReading"
     android:background="@color/cover_background">
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/atvt_reading_setting_fab"
+        android:elevation="4dp"
+        android:src="@mipmap/ic_setting"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_width="48dp"
+        android:layout_height="48dp" />
     <ScrollView
-        android:layout_width="368dp"
-        android:layout_height="551dp"
-        tools:layout_editor_absoluteY="8dp"
-        tools:layout_editor_absoluteX="8dp">
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
@@ -75,4 +84,5 @@
     </LinearLayout>
 
     </ScrollView>
-</android.support.constraint.ConstraintLayout>
+
+</RelativeLayout>

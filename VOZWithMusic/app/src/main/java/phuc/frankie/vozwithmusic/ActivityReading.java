@@ -1,16 +1,26 @@
 package phuc.frankie.vozwithmusic;
 
+import android.animation.Animator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
+import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.RequiresApi;
 import android.support.constraint.ConstraintLayout;
+import android.support.design.widget.FloatingActionButton;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,14 +32,16 @@ import phuc.frankie.vozwithmusic.Utility.Utility;
 public class ActivityReading extends AppCompatActivity {
     TextView chapter,tvTitle,tvChapter;
     Button nextChapter, prevChapter, home;
-    ConstraintLayout mainContainer;
+    RelativeLayout mainContainer;
     AppCompatActivity ref;
+    FloatingActionButton mSetting;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ref = this;
         setContentView(R.layout.activity_reading);
-        mainContainer = (ConstraintLayout) findViewById(R.id.atvt_reading_main_container);
+        mainContainer = (RelativeLayout) findViewById(R.id.atvt_reading_main_container);
+        mSetting = (FloatingActionButton) findViewById(R.id.atvt_reading_setting_fab);
         chapter =(TextView) findViewById(R.id.chapter);
         tvTitle = (TextView) findViewById(R.id.atvt_reading_tv_title);
         tvChapter = (TextView) findViewById(R.id.atvt_reading_tv_chapter);
@@ -38,6 +50,16 @@ public class ActivityReading extends AppCompatActivity {
         home = (Button) findViewById(R.id.atvt_reading_home_btn);
 
 
+
+        mSetting.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+            @Override
+            public void onClick(View view) {
+
+                startActivity(new Intent(ref,ActivitySettings.class));
+                ref.overridePendingTransition(R.transition.slide_in_right, R.transition.slide_out_left);
+            }
+        });
 
         home.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -85,11 +107,13 @@ public class ActivityReading extends AppCompatActivity {
         }
     }
 
+
+
     @Override
     public void onResume(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),""));
-        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),""));
+        int textSize = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_text_size_list),"13"));
+        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),"0"));
 
         chapter.setTextSize(textSize);
         if (color == 0){
@@ -121,6 +145,8 @@ public class ActivityReading extends AppCompatActivity {
 
         super.onResume();
     }
+
+
 
     @Override
     public void onDestroy(){

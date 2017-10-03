@@ -40,7 +40,7 @@ public class FragmentMain extends Fragment {
     @Override
     public void onResume(){
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),""));
+        int color = Integer.parseInt(preferences.getString(getResources().getString(R.string.pref_key_theme_color_list),"0"));
         if (color == 0 ){
             storiesList.setBackgroundColor(getResources().getColor(R.color.background_color_white));
         }
